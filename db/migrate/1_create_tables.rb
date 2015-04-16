@@ -1,6 +1,7 @@
 class CreateTables < ActiveRecord::Migration
 
     def change
+
         create_table :users do |t|
             t.string :username
             t.string :email
@@ -19,23 +20,33 @@ class CreateTables < ActiveRecord::Migration
         end
 
         create_table :posts do |t|
-            t.text  :post
+            t.string :post
             t.timestamps
         end
 
-        create_Table :actors do |t|
+        create_table :actors do |t|
             t.string :name
             t.string :gender
             t.string :age
             t.string :country
             t.string :city
             t.string :province
-            t.text   :bio
-            t.string  :born
+            t.string :bio
+            t.string :born
             t.boolean :star
             t.timestamps
         end
+        
+        create_table :reviews do |t|
+            t.string :content
+            t.timestamps
+        end
 
+        create_table :roles do |t|
+            t.string :actor
+            t.string :role
+            t.timestamps
+        end    
 
     end
 

@@ -1,0 +1,49 @@
+  <div class="container-fluid text-center">
+  <h1 class="bg1">Your Profile</h1>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4 col-sm-offset-4">
+        <h2 class="text-center">Edit Your Profile</h2>
+          <form action="/profile" method="post">
+            <div class="form-group">
+                <p>
+                  <label for="first-name-field">Chane your Name</label>
+                  <input class="form-control" type="text" id="first-name-field" name="first-name" placeholder="Chrystian">
+                </p>
+                <p>
+                  <label for="last-name-filed">Change your last name</label>
+                  <input class="form-control" type="text" id="last-name-field" name="last-name" placeholder="Szankowski">
+                </p>
+                <p>
+                  <label for="e-mail-field">Change Your E-mail:</label>
+                  <input class="form-control" type="text" id="e-mail-field" name="e-mail" placeholder="sample@email.com">
+                </p>
+                <p>
+
+                  <label for="gender">Change Gender</label> <br />        
+                  <label class="checkbox-inline">
+                    <input type="radio" value="male" name="gender" checked="checked"> Male
+                  </label>        
+                  <label class="checkbox-inline">
+                    <input type="radio" value="female" name="gender"> Female
+                  </label>
+                  
+                </p>
+                <p>
+                  <label for="password-field">Change Your Password</label>
+                  <input class="form-control" type="password" id="password-filed" name="password" placeholder="type your new password">
+                </p>
+                <p>
+                  <label for="password-field">Confirm Your Password</label>
+                  <input class="form-control" type="password" id="password-filed" name="password" placeholder="type your new password again">
+                </p>          
+                <p>
+                  <button class="btn btn-primary form-control" type="send">Save Changes</button>
+                </p>
+            </div>
+          </form>
+      </div>  
+    </div>  
+  </div>    

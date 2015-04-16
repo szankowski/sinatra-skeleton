@@ -10,11 +10,67 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140321144528) do
+ActiveRecord::Schema.define(version: 2) do
+
+  create_table "actors", force: true do |t|
+    t.string   "name"
+    t.string   "gender"
+    t.string   "age"
+    t.string   "country"
+    t.string   "city"
+    t.string   "province"
+    t.string   "bio"
+    t.string   "born"
+    t.boolean  "star"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "movie_id"
+  end
+
+  create_table "movies", force: true do |t|
+    t.string   "movie"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
+  create_table "posts", force: true do |t|
+    t.string   "post"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "movie_id"
+  end
+
+  create_table "ratings", force: true do |t|
+    t.integer  "rate"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "movie_id"
+    t.integer  "user_id"
+  end
+
+  create_table "reviews", force: true do |t|
+    t.string   "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "roles", force: true do |t|
+    t.string   "actor"
+    t.string   "role"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "movie_id"
+    t.integer  "actor_id"
+  end
 
   create_table "users", force: true do |t|
-    t.string "name"
-    t.string "email"
+    t.string   "username"
+    t.string   "email"
+    t.string   "password"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
