@@ -7,11 +7,11 @@
           <form method="post" name="login" action="/login">
             <p>
               <label for="login-field"></label>
-              <input class="form-control" type="text" id="username" name="login-field" placeholder="Username">
+              <input class="form-control" type="text" id="username" name="username" placeholder="Username">
             </p>
             <p>
               <label for"password-login-field" ></label>
-              <input class="form-control" type="password" id="password" name="password-login" placeholder="Password" >
+              <input class="form-control" type="password" id="password" name="password" placeholder="Password" >
             </p>
             <p>
               <button class="form-control btn-primary" id="login-button" type="send">Login</button>
@@ -20,7 +20,9 @@
         </div>
         <div class="col-sm-4">
           <div class="">
-          <h2>Sign Up</h2>     <p>
+          <h2>Sign Up</h2>     
+            <form method="post" action="/signup" name="signup">
+              <p>
                 <label for="username"></label>
                 <input class="form-control" type="text" id="username" name="username" placeholder="Username">
               </p>
@@ -33,10 +35,10 @@
                 <input class="form-control" type="password" id="password" name="password" placeholder="Password">
               </p>
               <p>
-                <button class="form-control btn-primary" type="send">Register</button>
+                <button class="form-control btn-primary" type="submit">Register</button>
               </p>
+            </form>
         </div>
-      </form>
     </div>
   </div>
 </div>

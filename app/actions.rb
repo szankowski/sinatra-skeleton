@@ -1,3 +1,13 @@
+#helpers
+
+helpers do
+  def current_user
+  @current_user = User.find_by(id: session[:user_id]) if session[:user_id]
+  end
+end
+
+
+
 # Homepage (Root path)
 get '/' do
   erb :index
@@ -19,22 +29,39 @@ get '/signup' do
 end
 
 # Post route for login
+post '/login' do
+  username = params[:username]
+  password = params[:password]
+
+  user = User.find_by(username: username)
+  if user.password == password
+    session[:user_id] = user.id
+    redirect '/'
+  else
+    redirect '/login'
+  end
+end
 
 # Post route for signup
 post '/signup' do
   username = params[:username]
   email = params[:email]
   password = params[:password]
-  user = User.new(username: username, email: email, password: password)
-  if user.save 
-    redirect '/'
+
+  user = User.find_by(username: username)
+  if user
+    redirect '/login'
   else
-    redirect '/signup'
+    user = User.create(username: username, email: email, password: password)
+    session[:user_id] = user.id
+    redirect '/'
   end
+
 end
 
 # Post route for profile
 post '/profile' do
   redirect '/profile'
 end
+
 
