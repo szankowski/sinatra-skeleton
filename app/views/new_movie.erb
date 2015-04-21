@@ -1,0 +1,27 @@
+<h1 class="bg1">Insert a New Movie in our Database</h1>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+            <form method="post" name="signup" action="/movies/create" >
+              <p>
+                <input class="form-control form-signup" type="text" id="title" name="title" placeholder="Insert the Movie Title Here">
+              </p>
+              <p>
+                <input class="form-control form-signup" type="text" name="genre" placeholder="Insert the Genre of the movie">
+              </p>
+              <p>
+                <input class="form-control form-signup" type="number" name="duration" placeholder="Insert the duration of the movie in minutes">
+              </p>
+              <p>
+                <input class="form-control form-signup" type="string" name="director" placeholder="Insert the name of the Director of the movie">
+              </p>
+              <p>
+                <button class="form-control btn-primary form-signup" type="send">Create Movie</button>
+              </p>
+            </form>
+             <% if @movie == Movie.find_by(title: @title)%>
+             <p>This movie is alredy in our data base</p>
+             <% end %>
+        </div>
+      </div>
+    </div>

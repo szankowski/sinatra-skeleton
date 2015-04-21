@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2) do
+ActiveRecord::Schema.define(version: 4) do
 
   create_table "actors", force: true do |t|
     t.string   "name"
@@ -28,10 +28,13 @@ ActiveRecord::Schema.define(version: 2) do
   end
 
   create_table "movies", force: true do |t|
-    t.string   "movie"
+    t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.string   "director"
+    t.integer  "duration"
+    t.string   "genre"
   end
 
   create_table "posts", force: true do |t|
