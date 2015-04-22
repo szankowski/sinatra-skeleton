@@ -6,6 +6,17 @@ helpers do
   end
 end
 
+# Movie Object
+get '/movies/new' do
+  erb :new_movie
+end
+
+# Movies Route
+get '/movies' do
+  @movies = Movie.all
+  erb :movies
+end
+
 # show a particular team
 get '/movies/:id' do
   @movie = Movie.find(params[:id])
@@ -68,10 +79,8 @@ post '/profile' do
   redirect '/profile'
 end
 
-# Movie Object
-get '/movies/new' do
-  erb :new_movie
-end
+
+# Create a new movie route
 
 post '/movies/create' do
   @title = params[:title]
@@ -83,14 +92,23 @@ post '/movies/create' do
   redirect '/movies/new'
   else
   new_movie = current_user.movies.create(title: @title, genre: @genre, duration: @duration, director: @director)
-  redirect '/movies/'
+  redirect "/movies/#{new_movie.id}"
   end
 end
 
 
-get '/movies' do
-  @movies = Movie.all
-  erb :movies
+get '/profile/edit' do
+    current_user
+    erb :profile
+end
+
+post '/profile/edit' do
+    username = params[:username]
+    email = params[:email]
+    password = params[:password]
+
+    current_user.update username: username, email: email, password: password
+    redirect '/profile'
 end
 
 # post '/movies/create' do

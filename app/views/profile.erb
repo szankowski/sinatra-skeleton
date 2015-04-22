@@ -1,24 +1,30 @@
   <div class="container-fluid text-center">
+  <div id="navcontainer">
   <h1 class="bg1">Your Profile</h1>
+<div id="navcontainer">
+  <ul>
+      <li><a href="/login">Log in</a></li>
+      <li><a href="/signup">Sign up</a></li>
+      <li><a href="/movies">All movies</a></li>
+      <li><a href="/profile">My profile</a></li>
+      <li><a href="/movies/new">Insert a new movie into Database</a></li>
+  </ul>
+</div>
   </div>
 
   <div class="container">
     <div class="row">
       <div class="col-sm-4 col-sm-offset-4">
         <h2 class="text-center">Edit Your Profile</h2>
-          <form action="/profile" method="post">
+          <form action="/profile/edit" method="post">
             <div class="form-group">
                 <p>
-                  <label for="first-name-field">Chane your Name</label>
-                  <input class="form-control" type="text" id="first-name-field" name="first-name" placeholder="Chrystian">
+                  <label for="name">Chane your Name</label>
+                  <input class="form-control" type="text" id="name" name="name" placeholder="Name" value="<%= current_user.username %>">
                 </p>
                 <p>
-                  <label for="last-name-filed">Change your last name</label>
-                  <input class="form-control" type="text" id="last-name-field" name="last-name" placeholder="Szankowski">
-                </p>
-                <p>
-                  <label for="e-mail-field">Change Your E-mail:</label>
-                  <input class="form-control" type="text" id="e-mail-field" name="e-mail" placeholder="sample@email.com">
+                  <label for="email">Change Your E-mail:</label>
+                  <input class="form-control" type="text" id="email" name="email" placeholder="E-mail" value="<%= current_user.email %>">
                 </p>
                 <p>
 
@@ -32,13 +38,13 @@
                   
                 </p>
                 <p>
-                  <label for="password-field">Change Your Password</label>
-                  <input class="form-control" type="password" id="password-filed" name="password" placeholder="type your new password">
+                  <label for="password">Change Your Password</label>
+                  <input class="form-control" type="password" id="password" name="password" placeholder="type your new password">
                 </p>
-                <p>
+                <!-- <p>
                   <label for="password-field">Confirm Your Password</label>
                   <input class="form-control" type="password" id="password-filed" name="password" placeholder="type your new password again">
-                </p>          
+                </p>           -->
                 <p>
                   <button class="btn btn-primary form-control" type="send">Save Changes</button>
                 </p>
